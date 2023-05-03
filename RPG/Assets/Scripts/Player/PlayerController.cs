@@ -25,22 +25,23 @@ public class PlayerController : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if(Physics.Raycast(ray, out hit, 100, movementMask))
+            if (Physics.Raycast(ray, out hit, 100, movementMask))
             {
                 //Debug.Log(hit.point);
                 agent.SetDestination(hit.point);
                 agent.isStopped = false;
-                an.SetInteger("Walk", 1);
             }
         }
 
         if (!agent.pathPending)
         {
-            if(agent.remainingDistance <= agent.stoppingDistance)
+            if (agent.remainingDistance <= agent.stoppingDistance)
             {
                 agent.isStopped = true;
-                an.SetInteger("Walk", 0);
+                an.SetFloat("Walk", 0.0f);
             }
         }
+
+        an.SetFloat("Walk", agent.velocity.sqrMagnitude);
     }
 }
