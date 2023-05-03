@@ -429,7 +429,12 @@ ModelImporter:
   - first:
       137: 13700000
     second: Body_Mesh
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 07 - Default
+    second: {fileID: 2100000, guid: b74d32503f3e4e7479bf783065fddc5e, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
