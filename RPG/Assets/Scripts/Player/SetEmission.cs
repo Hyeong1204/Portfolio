@@ -37,5 +37,7 @@ public class SetEmission : MonoBehaviour
                 timeLeft = 0.0f;
             }
         }
+
+        transform.localPosition = Vector3.zero;
     }
 }
