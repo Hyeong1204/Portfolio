@@ -6,11 +6,22 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class PlayerController : MonoBehaviour
 {
-    public Camera cam;
+    public enum State
+    {
+        Move = 0,
+        Attack,
+        Hit
+    }
+
+    public State state = State.Move;
+    public int hp = 100;
+
     NavMeshAgent agent;
+    Animator an;
+
+    public Camera cam;
     public LayerMask movementMask;
 
-    Animator an;
 
     private void Awake()
     {
@@ -43,5 +54,27 @@ public class PlayerController : MonoBehaviour
         }
 
         an.SetFloat("Walk", agent.velocity.sqrMagnitude);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            //state = state.attack;
+            //an.settrigger("attack");
+            if(state != State.Hit)
+            {
+                state = State.Hit;
+                hp -= 10;
+            }
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            state = State.Move;
+        }
     }
 }
