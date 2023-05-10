@@ -13,7 +13,7 @@ public class SetEmission : MonoBehaviour
 
     private void Start()
     {
-        //material = skinRenderer.material;
+        material = skinRenderer.material;
     }
 
     public void FX()

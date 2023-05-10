@@ -139,6 +139,8 @@ GameObject:
   - component: {fileID: 259436055}
   - component: {fileID: 259436054}
   - component: {fileID: 259436053}
+  - component: {fileID: 259436056}
+  - component: {fileID: 259436057}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -244,6 +246,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e12708ddfcbded64ba19c8ae95cc2b46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackCoolTime: 0
+  isInCombat: 0
 --- !u!114 &259436054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,6 +272,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b18c09c687fdd3942bbee0004be02673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &259436056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259436046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa18225819bd8fa49ae9b00b5d3b0d26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 100
+  power: 10
+--- !u!114 &259436057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259436046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 292af0dce9eabda4188c14b274fa7071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stat: {fileID: 259436056}
+  combat: {fileID: 259436053}
 --- !u!1 &342059465
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,6 +314,8 @@ GameObject:
   - component: {fileID: 342059467}
   - component: {fileID: 342059471}
   - component: {fileID: 342059470}
+  - component: {fileID: 342059472}
+  - component: {fileID: 342059473}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -318,6 +352,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e12708ddfcbded64ba19c8ae95cc2b46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackCoolTime: 0
+  isInCombat: 0
 --- !u!114 &342059468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,11 +376,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -381,6 +417,34 @@ MonoBehaviour:
   size: 1
   playerTransform: {fileID: 259436051}
   guideTransform: {fileID: 403273653}
+--- !u!114 &342059472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342059465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7484eb8bbf8ad424d96120b6a40df3ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionSize: 6
+  target: {fileID: 259436051}
+--- !u!114 &342059473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342059465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa18225819bd8fa49ae9b00b5d3b0d26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 100
+  power: 10
 --- !u!1 &403273652
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,6 +1160,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8422892626600249584, guid: e61024fc93498394385ff85f4d4689ca, type: 3}
   m_PrefabInstance: {fileID: 1418204313}
   m_PrefabAsset: {fileID: 0}
+--- !u!137 &2055076249 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 137472929421929078, guid: ffa08167d28cfd24dba0151a4c80f384, type: 3}
+  m_PrefabInstance: {fileID: 2146737252}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2146737252
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1183,5 +1252,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b57df79574cc34daf9c35dcae30d92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinRenderer: {fileID: 0}
+  skinRenderer: {fileID: 2055076249}
   duration: 0.05

@@ -32,11 +32,24 @@ public class PlayerMotor : MonoBehaviour
         //    {
         //    }
         //}
+
+        if( target != null)
+        {
+            FaceToTarget();
+            MoveToTarget(target.position);
+        }
     }
 
     public void MoveToTarget(Vector3 position)
     {
         agent.SetDestination(position);
+    }
+
+    void FaceToTarget()
+    {
+        Vector3 direction = (target.position - transform.position).normalized;
+        Quaternion lookRatation = Quaternion.LookRotation(new Vector3(direction.x, 0 , direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRatation, Time.deltaTime);
     }
 
     void OnFocusChanged(Interactable newFocus)

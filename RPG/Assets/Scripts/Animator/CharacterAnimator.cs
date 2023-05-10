@@ -19,6 +19,7 @@ public class CharacterAnimator : MonoBehaviour
 
     private void OnEnable()
     {
+        combat.OnIdle += OnIdle;
         combat.OnAttack += OnAttack;
         combat.OnHitted += OnHitted;
         combat.OnDie += Die;
@@ -28,12 +29,18 @@ public class CharacterAnimator : MonoBehaviour
     {
         combat.OnDie -= Die;
         combat.OnHitted -= OnHitted;
-        combat.OnAttack -= OnAttack;        
+        combat.OnAttack -= OnAttack;
+        combat.OnIdle -= OnIdle;
     }
 
     private void Update()
     {
         an.SetFloat("Walk", agent.velocity.sqrMagnitude);
+    }
+
+    void OnIdle()
+    {
+        an.SetFloat("Walk", 0.0f);
     }
 
     void OnAttack()

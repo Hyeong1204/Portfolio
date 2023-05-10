@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
     PlayerMotor motor;
     Rigidbody rigid;
+    CharacterCombat combat;
 
     public delegate void OnFocusChanged(Interactable newFocus);
     public OnFocusChanged onFocusChanged;
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
 
         motor = GetComponent<PlayerMotor>();
         rigid = GetComponent<Rigidbody>();
+        combat = GetComponent<CharacterCombat>();
     }
 
 
@@ -40,6 +42,7 @@ public class PlayerController : MonoBehaviour
                 //Debug.Log(hit.point);
                 motor.MoveToTarget(hit.point);
                 DeFocus();
+                SetFocus(null);
             }
         }
 
@@ -59,11 +62,17 @@ public class PlayerController : MonoBehaviour
     {
         onFocusChanged?.Invoke(newFocus);
 
-        //if (focus != newFocus && newFocus != null)
-        //{
-        //    focus = newFocus;
-        //    motor.MoveToTarget(focus.guideTransform.position);
-        //}
+        if (focus != newFocus && focus != null)
+        {
+            focus.OnDefocused();
+        }
+
+        focus = newFocus;
+        
+        if(focus != null)
+        {
+            focus.OnFocused(transform);
+        }
     }
 
     void DeFocus()
