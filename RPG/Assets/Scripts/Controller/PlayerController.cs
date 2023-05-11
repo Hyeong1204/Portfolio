@@ -13,8 +13,8 @@ public class PlayerController : MonoBehaviour
     Camera cam;
 
     PlayerMotor motor;
-    Rigidbody rigid;
     CharacterCombat combat;
+    Rigidbody rigid;
 
     public delegate void OnFocusChanged(Interactable newFocus);
     public OnFocusChanged onFocusChanged;

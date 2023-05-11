@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CharacterCombat : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class CharacterCombat : MonoBehaviour
 
     CharacterStat myStat;
 
-    
+
 
     #region CoolTime
     const float coolTime = 1.0f;
@@ -27,12 +28,12 @@ public class CharacterCombat : MonoBehaviour
     {
         myStat = GetComponent<CharacterStat>();
     }
-      
+
     private void Update()
     {
         attackCoolTime -= Time.deltaTime;
 
-        if(Time.time - lastAttackTime > coolTime)
+        if (Time.time - lastAttackTime > coolTime)
         {
             isInCombat = false;
         }
@@ -50,8 +51,9 @@ public class CharacterCombat : MonoBehaviour
             if (OnAttack != null)
             {
                 OnAttack();
-                enemyStat.Hitted(myStat.power);
+
                 enemyStat.GetComponent<CharacterCombat>().Hitted();
+                StartCoroutine(GetDamage(enemyStat, 0.5f));
             }
             isInCombat = true;
             attackCoolTime = coolTime;
@@ -59,8 +61,26 @@ public class CharacterCombat : MonoBehaviour
         }
     }
 
+    IEnumerator GetDamage(CharacterStat enemyStat, float dalay)
+    {
+        yield return new WaitForSeconds(dalay);
+        if (enemyStat != null)
+        {
+            enemyStat.Hitted(myStat.power);
+        }
+        else
+        {
+            Idle();
+        }
+    }
+
     public void Hitted()
     {
         OnHitted?.Invoke();
+    }
+
+    public void Idle()
+    {
+        OnIdle?.Invoke();
     }
 }

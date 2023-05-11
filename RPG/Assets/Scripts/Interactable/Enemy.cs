@@ -24,6 +24,6 @@ public class Enemy : Interactable
 
     void Die()
     {
-
+        PoolingManager.instance.ReturnObject(this.gameObject);
     }
 }

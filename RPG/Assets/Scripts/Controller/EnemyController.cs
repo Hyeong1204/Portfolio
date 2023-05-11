@@ -8,7 +8,6 @@ public class EnemyController : MonoBehaviour
     public float detectionSize;
 
     NavMeshAgent agent;
-    [SerializeField]
     Transform target;
 
     CharacterCombat combat;
@@ -17,6 +16,11 @@ public class EnemyController : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         combat = GetComponent<CharacterCombat>();
+    }
+
+    private void Start()
+    {
+        target = Player.instance.transform;
     }
 
     private void Update()
