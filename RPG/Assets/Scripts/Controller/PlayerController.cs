@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, 100, interactionMask))
+            if (Physics.Raycast(ray, out hit, interactionMask))
             {
                 SetFocus(hit.collider.GetComponent<Interactable>());
             }
