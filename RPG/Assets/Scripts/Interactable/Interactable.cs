@@ -6,7 +6,7 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     public float size;
-    public Transform playerTransform;
+    //public Transform playerTransform;
     public Transform guideTransform;
 
     bool isFocus = false;
@@ -16,9 +16,9 @@ public class Interactable : MonoBehaviour
     {
         if (isFocus)
         {
-            float distance = Vector3.Distance(guideTransform.position, playerTransform.position);
+            float distance = Vector3.Distance(guideTransform.position, Player.instance.transform.position);
 
-            if (distance < size)
+            if (distance < size && !isInteracted)
             {
                 isInteracted = true;
                 Interact();
@@ -32,17 +32,15 @@ public class Interactable : MonoBehaviour
         
     }
 
-    public void OnFocused(Transform tf)
+    public void OnFocused()
     {
         isFocus = true;
-        playerTransform = tf;
         isInteracted = false;
     }
 
     public void OnDefocused()
     {
         isFocus = false;
-        playerTransform = null;
     }
 
     private void OnDrawGizmos()

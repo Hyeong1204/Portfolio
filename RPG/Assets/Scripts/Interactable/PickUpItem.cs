@@ -16,7 +16,7 @@ public class PickUpItem : Interactable
         // 아이템 획득;
         Debug.Log("아이템");
         bool isSelected = Inventory.Instance.Add(item);
-        if (!isSelected)
+        if (isSelected)
         {
             Destroy(this.gameObject); 
         }

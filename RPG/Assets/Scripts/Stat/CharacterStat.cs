@@ -17,6 +17,13 @@ public class CharacterStat : MonoBehaviour
         currentHp = maxHp;
     }
 
+    public void Heal(int heal)
+    {
+        currentHp += heal;
+
+        currentHp = Mathf.Clamp(currentHp, 0, maxHp);
+    }
+
     public void Hitted(int damage)
     {
         damage = Mathf.Clamp(damage, 0, int.MaxValue);

@@ -11,7 +11,7 @@ public class Inventory : MonoBehaviour
     public int maxSpace = 9;
 
     public delegate void OnItemChagned();
-    public OnItemChagned onItemChagned;
+    public OnItemChagned onItemChanged;
 
     private void Awake()
     {
@@ -25,7 +25,7 @@ public class Inventory : MonoBehaviour
             return false;
         }
         items.Add(addedItem);
-        onItemChagned?.Invoke();
+        onItemChanged?.Invoke();
 
         return true;
     }
@@ -33,6 +33,6 @@ public class Inventory : MonoBehaviour
     public void Remove(Item addedItem)
     {
         items.Remove(addedItem);
-        onItemChagned?.Invoke();
+        onItemChanged?.Invoke();
     }
 }

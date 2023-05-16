@@ -9,4 +9,14 @@ public class Item : ScriptableObject
     public string itemName = "Item";
     public Sprite icon = null;
 
+    public virtual void Use()
+    {
+        //Debug.Log("아이템 사용");
+        RemoveFormInventory();
+    }
+
+    public void RemoveFormInventory()
+    {
+        Inventory.Instance.Remove(this);
+    }
 }

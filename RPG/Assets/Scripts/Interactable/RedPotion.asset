@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db34a8367313d4f43b2254259d48ad0c, type: 3}
-  m_Name: EmissiveRedPotion
+  m_Script: {fileID: 11500000, guid: ecbbc922380be0d478b40a47b58dcb24, type: 3}
+  m_Name: RedPotion
   m_EditorClassIdentifier: 
-  itemName: EmissiveRedPotion
+  itemName: RedPotion
   icon: {fileID: 21300000, guid: 65f0e363b74cf5845ab8c3fbc14f39ac, type: 3}
+  heal: 10

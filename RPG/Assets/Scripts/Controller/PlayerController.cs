@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
@@ -31,6 +32,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
         rigid.velocity = Vector3.zero;
         if (Input.GetMouseButtonDown(0))
         {
@@ -71,7 +77,7 @@ public class PlayerController : MonoBehaviour
         
         if(focus != null)
         {
-            focus.OnFocused(transform);
+            focus.OnFocused();
         }
     }
 
