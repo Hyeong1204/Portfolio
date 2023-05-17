@@ -7,6 +7,11 @@ public class CharacterStat : MonoBehaviour
 {
     public int maxHp;
     int currentHp;
+    public int CurrentHp
+    {
+        get => currentHp;
+        set => currentHp = value;
+    }
 
     public int power = 10;
 

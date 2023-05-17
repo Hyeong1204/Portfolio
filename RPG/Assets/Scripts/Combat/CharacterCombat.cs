@@ -13,7 +13,7 @@ public class CharacterCombat : MonoBehaviour
 
     CharacterStat myStat;
 
-
+    public Transform hpBarTf;
 
     #region CoolTime
     const float coolTime = 1.0f;
@@ -27,6 +27,7 @@ public class CharacterCombat : MonoBehaviour
     private void Awake()
     {
         myStat = GetComponent<CharacterStat>();
+        HpBarManager.instance.Create(hpBarTf, myStat);
     }
 
     private void Update()
