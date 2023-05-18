@@ -18,6 +18,12 @@ public class PickUpItem : Interactable
         bool isSelected = Inventory.Instance.Add(item);
         if (isSelected)
         {
+            if(item.audioClip != null)
+            {
+                AudioManager.instance.source.clip = item.audioClip;
+                AudioManager.instance.source.Play();
+            }
+
             Destroy(this.gameObject); 
         }
     }

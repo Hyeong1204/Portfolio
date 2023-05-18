@@ -8,6 +8,7 @@ public class Item : ScriptableObject
 {
     public string itemName = "Item";
     public Sprite icon = null;
+    public AudioClip audioClip = null;
 
     public virtual void Use()
     {
