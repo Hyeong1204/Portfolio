@@ -27,7 +27,11 @@ public class CharacterCombat : MonoBehaviour
     private void Awake()
     {
         myStat = GetComponent<CharacterStat>();
-        HpBarManager.instance.Create(hpBarTf, myStat);
+    }
+
+    private void Start()
+    {
+        HpBarManager.instance.Create(hpBarTf, myStat);        
     }
 
     private void Update()
