@@ -88,4 +88,9 @@ public class CharacterCombat : MonoBehaviour
     {
         OnIdle?.Invoke();
     }
+
+    public void Die()
+    {
+        OnDie?.Invoke();
+    }
 }
