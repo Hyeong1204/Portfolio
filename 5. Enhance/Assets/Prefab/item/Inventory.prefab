@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1760810248043658165
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1760810248043658167}
+  - component: {fileID: 1760810248043658164}
+  m_Layer: 0
+  m_Name: Inventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1760810248043658167
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760810248043658165}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1760810248043658164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760810248043658165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cab378f7ae798a54e9e5ea6f1f3ee6e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData:
+  - {fileID: 11400000, guid: 88311f6a3a6bd564c8ea468e7c0429ab, type: 2}
+  - {fileID: 11400000, guid: a1763b3d56d7cd04abe1598fa7ddeef6, type: 2}
+  - {fileID: 11400000, guid: c5099e1c3eb6e9245a33ea4cf5de0814, type: 2}
+  - {fileID: 11400000, guid: 427bba2f4dbc00f419be8a4db29fd74c, type: 2}
+  - {fileID: 11400000, guid: f88b25a0f02c8ae44a9a644c85a1f55b, type: 2}
+  - {fileID: 11400000, guid: d07d15ae2e97dbc4890babac6c1abe0d, type: 2}
+  - {fileID: 11400000, guid: 1dc2af221efe15443a2060d3e93aca47, type: 2}
+  - {fileID: 11400000, guid: d030582e0403dee448c9fc648d76273c, type: 2}
+  - {fileID: 11400000, guid: 9bb0cf3f257cbb047a60bc912994b8cb, type: 2}
+  - {fileID: 11400000, guid: 9f7ef81850eeb0b469c9b8c55692c625, type: 2}
+  inventory: []

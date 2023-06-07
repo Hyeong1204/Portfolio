@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f28f743c46ca6e448ab1484ae523eda, type: 3}
+  m_Name: Sword+4
+  m_EditorClassIdentifier: 
+  itemID: 4
+  itemName: "\uCCA0\uAC80 +4"
+  itemPrefab: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: e215cd58b8194a74baa03634b7c2cf61, type: 3}
+  saleValue: 5000
+  fameValue: 30
+  costMoneyValue: 0
+  costData:
+  - costItem: 0
+    costItemValue: 70
+  - costItem: 1
+    costItemValue: 50
+  - costItem: 3
+    costItemValue: 10
+  enforceRatio: 0.75
+  destroy: 0.02
+  changeWeaponData:
+  - {fileID: 0}
+  - {fileID: 0}
