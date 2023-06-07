@@ -1,0 +1,381 @@
+{
+    "name": "PlayerInputAction",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "dab78ac3-8287-4370-b36e-8b44c20cf0f4",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "bdb0d524-1441-479c-a7d6-d33de5ca9f15",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Dash",
+                    "type": "Button",
+                    "id": "4a925a16-ec3c-4af4-9635-50aabca8a562",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Attack",
+                    "type": "Button",
+                    "id": "f9323522-b9db-43e0-b3ff-2a6a046b9e29",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pickup",
+                    "type": "Button",
+                    "id": "06c15987-d0e3-496b-a441-2e5cb34bb89c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LockOn",
+                    "type": "Button",
+                    "id": "e4b9597c-c24e-4239-9973-8a7133e194e8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "2D Vector",
+                    "id": "86d20c93-b6f9-4b1b-8ca1-6eebeb56c65c",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "1ea735d3-2f16-4606-9b1a-e79c588b022a",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard&Mouse",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "9bac48d4-984f-4402-b266-91115c044d5c",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard&Mouse",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "1f8448ec-8fdf-48bf-8356-73c72dba88f2",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard&Mouse",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "c6e531c4-29ee-40a2-aa70-adad793a7a9a",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard&Mouse",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "f20eee12-2ac9-4ccb-b790-99dc7f647b12",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard&Mouse",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "64eb88be-0e39-42aa-b686-1edda3bdce02",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard&Mouse",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "48205a1d-797d-49e7-ac0f-07dd6c4859ec",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard&Mouse",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a3c338c6-6baa-4e4c-b7a0-2b2dc40498d2",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard&Mouse",
+                    "action": "Pickup",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "31e8aa96-edba-466a-bb82-d3322d1cf191",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard&Mouse",
+                    "action": "LockOn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "95dba8d6-b188-489b-906f-87ca5dd5b6bb",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard&Mouse",
+                    "action": "LockOn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Test",
+            "id": "befa6676-e7b6-4976-b4dd-1b51e1d18764",
+            "actions": [
+                {
+                    "name": "Test1",
+                    "type": "Button",
+                    "id": "ca9f9237-7eec-4a52-8ccb-c1f07c841451",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Test2",
+                    "type": "Button",
+                    "id": "46a28743-7f13-4e34-a2fb-7a0d1bf25f6d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Test3",
+                    "type": "Button",
+                    "id": "78f0b64f-e311-4742-902a-c781d518f60b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Test4",
+                    "type": "Button",
+                    "id": "9e8e64cc-f626-425f-8387-4fb98c1c82cc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Test5",
+                    "type": "Button",
+                    "id": "20a1f1db-712e-4d52-9e91-9a86f0933a11",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "df0399a8-d327-44cc-a067-3254a68c412a",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard&Mouse",
+                    "action": "Test1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "26e53fc3-6392-48e7-a500-03bffb9d6b22",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard&Mouse",
+                    "action": "Test2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e8a1933f-d6b9-450a-8fe4-7fdfb060c2ff",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard&Mouse",
+                    "action": "Test3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "32db27e5-0bb3-453a-90fb-29d1764a64bc",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard&Mouse",
+                    "action": "Test4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dba83fec-4f0f-4c31-bee9-6200fefcea07",
+                    "path": "<Keyboard>/5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard&Mouse",
+                    "action": "Test5",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "d9428143-0d79-463f-aaed-89fc105c64d9",
+            "actions": [
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "55709e78-966e-4924-82fc-e94fdd05e0cf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "InventoryOnOff",
+                    "type": "Button",
+                    "id": "bb688757-aa95-4e72-9b9e-b728e3a7a1cd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "700bb86a-076b-41c8-b7a8-14d87005672a",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard&Mouse",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dda37ab0-47ac-42d2-83aa-6c0a455833a0",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard&Mouse",
+                    "action": "InventoryOnOff",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Effect",
+            "id": "f5d19990-b6af-4b6e-be26-cab409e452e2",
+            "actions": [
+                {
+                    "name": "CousorMove",
+                    "type": "Value",
+                    "id": "a9a34205-629a-4722-911d-c1d318c7c4f8",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d2ade737-599f-4916-88eb-ef024b2d8291",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard&Mouse",
+                    "action": "CousorMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "KeyBoard&Mouse",
+            "bindingGroup": "KeyBoard&Mouse",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
