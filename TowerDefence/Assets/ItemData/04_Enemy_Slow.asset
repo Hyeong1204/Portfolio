@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd9b2dc83898e747bc8ba5ce01f004b, type: 3}
+  m_Name: 04_Enemy_Slow
+  m_EditorClassIdentifier: 
+  id: 4
+  itemName: "\uC801 \uC2AC\uB85C\uC6B0"
+  modelprefab: {fileID: 943373364154646681, guid: dcbb9c6fe80fd2643a931c959c89372c, type: 3}
+  itemCost: 20
+  count: 5
+  layerNames:
+  - RoadTile
+  itemIcon: {fileID: -702784360, guid: 5694a953260e77a41b17b38ef10234bd, type: 3}
+  description: "\uBC94\uC704 \uC548\uC5D0 \uC788\uB294 \uC801\uB4E4\uC758 \uC774\uB3D9\uC18D\uB3C4\uB97C 
+    \uB0AE\uCDA5\uB2C8\uB2E4."
