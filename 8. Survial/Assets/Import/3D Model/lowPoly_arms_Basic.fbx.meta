@@ -24,7 +24,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -80,7 +80,57 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: lowPoly_arms_Basic(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Camera
+      parentName: lowPoly_arms_Basic(Clone)
+      position: {x: -0, y: 0.5654099, z: 0}
+      rotation: {x: -0.0015191217, y: -0.70971555, z: -0.00037400698, w: 0.70448667}
+      scale: {x: 100, y: 100.00001, z: 100}
+    - name: Armature
+      parentName: lowPoly_arms_Basic(Clone)
+      position: {x: -0, y: 0, z: 0.587439}
+      rotation: {x: -0.50690085, y: -0.49300262, z: 0.49300253, w: 0.50690085}
+      scale: {x: 100.00001, y: 100, z: 100.00001}
+    - name: UpArm.R
+      parentName: Armature
+      position: {x: 0.0024623554, y: 3.1664968e-10, z: 0.00006846476}
+      rotation: {x: -0.47807842, y: 0.5332752, z: 0.5215868, w: 0.4636872}
+      scale: {x: 0.99999994, y: 0.9999995, z: 0.9999999}
+    - name: DownArm.R
+      parentName: UpArm.R
+      position: {x: 2.6731867e-10, y: 0.009711412, z: 0}
+      rotation: {x: 0.022295, y: -0.011120097, z: 0.06035728, w: 0.9978659}
+      scale: {x: 1, y: 0.9999999, z: 0.99999994}
+    - name: DownArm.R_end
+      parentName: DownArm.R
+      position: {x: -0, y: 0.010075531, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: UpArm.L
+      parentName: Armature
+      position: {x: 0.002462354, y: 0.011544049, z: 0.00006846627}
+      rotation: {x: -0.43592447, y: 0.5451715, z: 0.5561915, w: 0.45100886}
+      scale: {x: 0.99999994, y: 0.9999996, z: 0.9999999}
+    - name: DownArm.L
+      parentName: UpArm.L
+      position: {x: 1.11758706e-10, y: 0.009711411, z: -0.0000000012619421}
+      rotation: {x: 0.00039949836, y: 0.01386704, z: 0.11521226, w: 0.99324405}
+      scale: {x: 0.9999999, y: 0.99999976, z: 0.9999998}
+    - name: DownArm.L_end
+      parentName: DownArm.L
+      position: {x: -0, y: 0.01007553, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cube
+      parentName: lowPoly_arms_Basic(Clone)
+      position: {x: -1.3100632e-14, y: -1.6209256e-14, z: -2.0539126e-14}
+      rotation: {x: -0.7071068, y: -9.840808e-15, z: 1.6954328e-14, w: 0.7071067}
+      scale: {x: 11.682614, y: 11.682611, z: 11.682614}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -91,13 +141,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
