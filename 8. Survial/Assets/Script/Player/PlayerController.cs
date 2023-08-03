@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour
     private Camera theCamera;
     private CapsuleCollider capsuleCollider;        // 땅 착지 여부
 
+    private GunControlloer theGunController;
+
     private void Awake()
     {
         myRigid = GetComponent<Rigidbody>();
@@ -51,6 +53,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        theGunController = FindObjectOfType<GunControlloer>();
         applySpeed = walkSpeed;
         originPosY = theCamera.transform.localPosition.y;
         applyCrouchPosY = originPosY;
@@ -163,6 +166,8 @@ public class PlayerController : MonoBehaviour
     private void Running()
     {
         if (isCrouch) Crouch();      // 앉은 상태에서 달리기시 앉은 상태 해제
+
+        theGunController.CancelFineSight();     // 뛰면 정조준 모드 풀기
 
         isRun = true;
         applySpeed = runSpeed;
