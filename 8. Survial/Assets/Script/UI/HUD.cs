@@ -7,7 +7,7 @@ using UnityEngine;
 public class HUD : MonoBehaviour
 {
     [SerializeField]
-    private GunControlloer theGunGontroller;
+    private GunController theGunGontroller;
     private Gun currentGun;
 
     // 필요하면 HUD 호출, 필요 없으면 HUD 비활성화 

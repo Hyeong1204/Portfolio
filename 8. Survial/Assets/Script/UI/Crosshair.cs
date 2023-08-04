@@ -14,14 +14,21 @@ public class Crosshair : MonoBehaviour
     [SerializeField]
     private GameObject crosshairHud;
     [SerializeField]
-    private GunControlloer theGunController;
+    private GunController theGunController;
 
     public void WalkingAnimation(bool flag)
     {
+        WeaponManager.currentWeaponAnimator.SetBool("Walk", flag);
         anim.SetBool("Walking", flag);
     }
 
-    public void RunninggAnimation(bool flag)
+    public void RunningAnimation(bool flag)
+    {
+        WeaponManager.currentWeaponAnimator.SetBool("Run", flag);
+        anim.SetBool("Running", flag);
+    }
+
+    public void JumpingAnimation(bool flag)
     {
         anim.SetBool("Running", flag);
     }

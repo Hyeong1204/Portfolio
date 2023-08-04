@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunControlloer : MonoBehaviour
+public class GunController : MonoBehaviour
 {
+    public static bool isActivate = true;
+
     [SerializeField]
     private Gun currentGun;         // 현재 장착된 총
 
@@ -15,7 +17,7 @@ public class GunControlloer : MonoBehaviour
     private bool isFineSightMode = false;
 
     private AudioSource audioSource;    // 총 효과음
-    
+
     private Vector3 originPos;          // 본래 포지션 값
 
     private RaycastHit hitInfo;     // 레이저 충돌 정보 받아옴
@@ -36,14 +38,20 @@ public class GunControlloer : MonoBehaviour
     {
         theCrosshair = FindObjectOfType<Crosshair>();
         originPos = Vector3.zero;
+
+        WeaponManager.currentWeapon = currentGun.GetComponent<Transform>();
+        WeaponManager.currentWeaponAnimator = currentGun.anim;
     }
 
     private void Update()
     {
-        GunFireRateCalc();
-        TryFire();
-        TryReload();
-        TryFineSight();
+        if (isActivate)
+        {
+            GunFireRateCalc();
+            TryFire();
+            TryReload();
+            TryFineSight();
+        }
     }
 
     /// <summary>
@@ -104,13 +112,13 @@ public class GunControlloer : MonoBehaviour
 
     private void Hit()
     {
-        if(Physics.Raycast(theCam.transform.position, theCam.transform.forward + 
-            new Vector3(UnityEngine.Random.Range(-theCrosshair.GetAccuracy() - currentGun.accuracy, theCrosshair.GetAccuracy() + currentGun.accuracy), 
-                        UnityEngine.Random.Range(-theCrosshair.GetAccuracy() - currentGun.accuracy, theCrosshair.GetAccuracy() + currentGun.accuracy),0.0f),
+        if (Physics.Raycast(theCam.transform.position, theCam.transform.forward +
+            new Vector3(UnityEngine.Random.Range(-theCrosshair.GetAccuracy() - currentGun.accuracy, theCrosshair.GetAccuracy() + currentGun.accuracy),
+                        UnityEngine.Random.Range(-theCrosshair.GetAccuracy() - currentGun.accuracy, theCrosshair.GetAccuracy() + currentGun.accuracy), 0.0f),
                         out hitInfo, currentGun.range))
         {
-           var clone = Instantiate(hitEffectPrefeb, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
-           Destroy(clone, 2.0f);
+            var clone = Instantiate(hitEffectPrefeb, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+            Destroy(clone, 2.0f);
         }
     }
 
@@ -123,6 +131,15 @@ public class GunControlloer : MonoBehaviour
         {
             CancelFineSight();
             StartCoroutine(ReloadCoroutine());
+        }
+    }
+
+    public void CancelReload()
+    {
+        if (isReload)
+        {
+            StopAllCoroutines();
+            isReload = false;
         }
     }
 
@@ -200,7 +217,7 @@ public class GunControlloer : MonoBehaviour
         currentGun.anim.SetBool("FineSightMode", isFineSightMode);
         theCrosshair.FineSightAnimation(isFineSightMode);
 
-        if(isFineSightMode)
+        if (isFineSightMode)
         {
             StopAllCoroutines();
             StartCoroutine(FineSightActivateCoroutine());
@@ -218,7 +235,7 @@ public class GunControlloer : MonoBehaviour
     /// <returns></returns>
     IEnumerator FineSightActivateCoroutine()
     {
-        while(currentGun.transform.localPosition != currentGun.fineSightOriginPos)
+        while (currentGun.transform.localPosition != currentGun.fineSightOriginPos)
         {
             currentGun.transform.localPosition = UnityEngine.Vector3.Lerp(currentGun.transform.localPosition, currentGun.fineSightOriginPos, 0.2f);
             yield return null;
@@ -247,7 +264,7 @@ public class GunControlloer : MonoBehaviour
         Vector3 recotlBack = new Vector3(currentGun.retroActionForce, originPos.y, originPos.z);
         Vector3 retroActionRecoilBack = new Vector3(currentGun.retroActionFineSightForce, currentGun.fineSightOriginPos.y, currentGun.fineSightOriginPos.z);
 
-        if(!isFineSightMode)
+        if (!isFineSightMode)
         {
             currentGun.transform.localPosition = originPos;
 
@@ -259,7 +276,7 @@ public class GunControlloer : MonoBehaviour
             }
 
             // 원위치
-            while(currentGun.transform.localPosition != originPos)
+            while (currentGun.transform.localPosition != originPos)
             {
                 currentGun.transform.localPosition = Vector3.Lerp(currentGun.transform.localPosition, originPos, 0.1f);
                 yield return null;
@@ -289,6 +306,22 @@ public class GunControlloer : MonoBehaviour
     public Gun GetGun()
     {
         return currentGun;
+    }
+
+    public void GunChange(Gun gun)
+    {
+        if (WeaponManager.currentWeapon != null)
+        {
+            WeaponManager.currentWeapon.gameObject.SetActive(false);
+        }
+
+        currentGun = gun;
+        WeaponManager.currentWeapon = currentGun.GetComponent<Transform>();
+        WeaponManager.currentWeaponAnimator = currentGun.anim;
+
+        currentGun.transform.localPosition = Vector3.zero;
+        currentGun.gameObject.SetActive(true);
+        isActivate = true;
     }
 
     public bool GetFineSightMode()

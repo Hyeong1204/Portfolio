@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class HandContoroller : MonoBehaviour
 {
+    public static bool isActivate = false;
     // 현재 장착된 Hand형 타입 무기
     [SerializeField]
     private Hand currentHand;
@@ -17,14 +18,17 @@ public class HandContoroller : MonoBehaviour
 
     private void Update()
     {
-        TryAttack();
+        if (isActivate)
+        {
+            TryAttack();
+        }
     }
 
     private void TryAttack()
     {
         if (Input.GetButton("Fire1"))
         {
-            if(!isAttack)
+            if (!isAttack)
             {
                 StartCoroutine(AttackCoroutine());
             }
@@ -67,11 +71,28 @@ public class HandContoroller : MonoBehaviour
 
     private bool CheckObject()
     {
-        if(Physics.Raycast(transform.position, transform.forward, out hitInfo, currentHand.range))
+        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, currentHand.range))
         {
             return true;
         }
 
         return false;
+    }
+
+    public void HandChange(Hand hand)
+    {
+        if (WeaponManager.currentWeapon != null)
+        {
+            WeaponManager.currentWeapon.gameObject.SetActive(false);
+        }
+
+        currentHand = hand;
+        WeaponManager.currentWeapon = currentHand.GetComponent<Transform>();
+        WeaponManager.currentWeaponAnimator = currentHand.anim;
+
+        currentHand.transform.localPosition = Vector3.zero;
+        currentHand.gameObject.SetActive(true);
+
+        isActivate = true;
     }
 }

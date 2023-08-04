@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody myRigid;
     private Camera theCamera;
     private CapsuleCollider capsuleCollider;        // 땅 착지 여부
-    private GunControlloer theGunController;
+    private GunController theGunController;
     private Crosshair theCrosshair;
 
     private void Awake()
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        theGunController = FindObjectOfType<GunControlloer>();
+        theGunController = FindObjectOfType<GunController>();
         theCrosshair = FindObjectOfType<Crosshair>();
         applySpeed = walkSpeed;
         originPosY = theCamera.transform.localPosition.y;
@@ -139,7 +139,7 @@ public class PlayerController : MonoBehaviour
     private void IsGround()
     {
         isGround = Physics.Raycast(transform.position, Vector3.down, capsuleCollider.bounds.extents.y + 0.1f);      // 캡슐콜라이더의 y축 방향으로 반 + 0.1 하여 땅의 닿았는지 탐색
-        theCrosshair.RunninggAnimation(!isGround);
+        theCrosshair.JumpingAnimation(!isGround);
     }
 
     /// <summary>
@@ -179,7 +179,7 @@ public class PlayerController : MonoBehaviour
         theGunController.CancelFineSight();     // 뛰면 정조준 모드 풀기
 
         isRun = true;
-        theCrosshair.RunninggAnimation(isRun);
+        theCrosshair.RunningAnimation(isRun);
         applySpeed = runSpeed;
     }
 
@@ -189,7 +189,7 @@ public class PlayerController : MonoBehaviour
     private void RunningCanel()
     {
         isRun = false;
-        theCrosshair.RunninggAnimation(isRun);
+        theCrosshair.RunningAnimation(isRun);
         applySpeed = walkSpeed;
     }
 
